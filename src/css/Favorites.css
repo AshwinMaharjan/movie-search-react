@@ -1,41 +1,163 @@
+/* ===== Favorites.css ===== */
+/* Aesthetic: Cinematic dark — rich blacks, warm amber accents, film-grain atmosphere */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── Page wrapper ── */
 .favorites {
-  padding: 2rem;
-  width: 100%;
-  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 3rem 2.5rem 5rem;
+  background-color: #0d0d0f;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Subtle grain overlay */
+.favorites::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+/* Warm amber glow in top-left corner */
+.favorites::after {
+  content: "";
+  position: fixed;
+  top: -180px;
+  left: -120px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(203, 136, 40, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Heading ── */
 .favorites h2 {
-  margin-bottom: 2rem;
-  text-align: center;
-  font-size: 2.5rem;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #f5e6c8;
+  letter-spacing: -0.02em;
+  margin: 0 0 2.5rem;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
 }
 
+/* Amber underline accent */
+.favorites h2::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 56px;
+  background: linear-gradient(90deg, #cb8828, #e8b04b);
+  border-radius: 2px;
+  margin-top: 0.5rem;
+}
+
+/* ── Movies grid ── */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.75rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.55s ease both;
+}
+
+/* Stagger child cards on load */
+.movies-grid > * {
+  animation: cardReveal 0.5s ease both;
+}
+
+.movies-grid > *:nth-child(1)  { animation-delay: 0.05s; }
+.movies-grid > *:nth-child(2)  { animation-delay: 0.10s; }
+.movies-grid > *:nth-child(3)  { animation-delay: 0.15s; }
+.movies-grid > *:nth-child(4)  { animation-delay: 0.20s; }
+.movies-grid > *:nth-child(5)  { animation-delay: 0.25s; }
+.movies-grid > *:nth-child(6)  { animation-delay: 0.30s; }
+.movies-grid > *:nth-child(n+7) { animation-delay: 0.35s; }
+
+/* ── Empty state ── */
 .favorites-empty {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #0d0d0f;
   text-align: center;
-  padding: 4rem 2rem;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  margin: 2rem auto;
-  max-width: 600px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp 0.6s ease both;
+}
+
+/* Same grain + glow for empty state */
+.favorites-empty::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.favorites-empty::after {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(203, 136, 40, 0.09) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Film reel decorative icon */
+.favorites-empty::before {
+  content: "🎞";
+  position: static;
+  display: block;
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.5;
+  background: none;
+  filter: grayscale(1) brightness(1.4);
 }
 
 .favorites-empty h2 {
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  color: #e50914;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 600;
+  color: #f5e6c8;
+  letter-spacing: -0.02em;
+  margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .favorites-empty p {
-  color: #999;
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #7a7060;
+  max-width: 340px;
+  line-height: 1.7;
+  margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
-
-/* Animation for new favorites being added */
-@keyframes fadeIn {
+/* ── Keyframes ── */
+@keyframes fadeUp {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -46,7 +168,25 @@
   }
 }
 
-.movies-grid > * {
-  animation: fadeIn 0.3s ease-out forwards;
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .favorites {
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 1.25rem;
+  }
+}

@@ -1,0 +1,81 @@
+/* ===== Footer.css ===== */
+/* Cinematic dark theme — minimal, refined */
+
+.footer {
+  width: 100%;
+  padding: 1.25rem 2.5rem;
+  background-color: #0d0d0f;
+  border-top: 1px solid rgba(203, 136, 40, 0.1);
+  position: relative;
+}
+
+/* Subtle top amber glow line */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #cb8828, transparent);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #4a4438;
+  letter-spacing: 0.03em;
+}
+
+/* Brand */
+.footer-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #7a7060;
+  letter-spacing: 0.01em;
+}
+
+/* Dot divider */
+.footer-divider {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: rgba(203, 136, 40, 0.35);
+  flex-shrink: 0;
+}
+
+/* TMDB link */
+.footer-credit a {
+  color: #cb8828;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-credit a:hover {
+  color: #e8b04b;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .footer {
+    padding: 1rem 1.25rem;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}
