@@ -1,20 +1,20 @@
-# 🎬 Movie App
+# Movie App
 
-A cinematic movie discovery app built with React, powered by the TMDB API. Browse popular movies, search by title, and save your favorites — all persisted across sessions via localStorage.
+A cinematic movie discovery app built with React, powered by the TMDB API. Browse popular movies, search by title and save your favorites — all persisted across sessions via localStorage.
 
 ---
 
-## ✨ Features
+## Features
 
 - **Popular Movies** — loads the current trending movies on launch
 - **Search** — find any movie by title using the TMDB search API
 - **Favorites** — add or remove movies from your favorites list with one click
 - **Persistent Storage** — favorites survive page refreshes via localStorage
-- **Responsive Design** — works cleanly on mobile, tablet, and desktop
+- **Responsive Design** — works cleanly on mobile, tablet and desktop
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -27,7 +27,7 @@ A cinematic movie discovery app built with React, powered by the TMDB API. Brows
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -55,7 +55,7 @@ src/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Node.js (v18 or above)
@@ -90,27 +90,40 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
-## 🔑 Environment Variables
+## Environment Variables
 
 | Variable | Description |
 |---|---|
 | `VITE_TMDB_API_KEY` | Your TMDB API key (required) |
 
-> ⚠️ Never commit your `.env` file. It is already included in `.gitignore` by default with Vite.
-
 ---
 
-## 📸 Pages
+## Pages
 
 ### Home
-Browse popular movies on load or search for any title. Movies are displayed in a responsive grid with poster art, title, and release year.
+Browse popular movies on load or search for any title. Movies are displayed in a responsive grid with poster art, title and release year.
+<img width="1366" height="728" alt="image" src="https://github.com/user-attachments/assets/634d35ec-7fcc-4e8d-915e-bd88c0d6b606" />
 
 ### Favorites
 All movies you've hearted are saved here. Favorites persist across browser sessions using localStorage. Removing a movie from favorites updates instantly.
+<img width="1366" height="728" alt="image" src="https://github.com/user-attachments/assets/4f60784b-62f1-4952-9c51-0f87ccb196fc" />
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
 - Movie data and images provided by [TMDB](https://www.themoviedb.org/)
 - This product uses the TMDB API but is not endorsed or certified by TMDB
+
+---
+
+## Contact
+
+Have questions or want to contribute? Reach out:
+
+- **GitHub**: https://github.com/AshwinMaharjan
+- **Email**: maharjan.ashwin098@gmail.com
+
+---
+
+> Built with 🎬 and React. MovieApp - Browse your favorite movies
